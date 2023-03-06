@@ -19,10 +19,35 @@ return require('packer').startup(function(use)
   use({
 	  'rose-pine/neovim',
 	  as = 'rose-pine',
-	  config = function()
-		  vim.cmd('colorscheme rose-pine')
-	  end
   })
+
+  use ({
+    'folke/tokyonight.nvim',
+    as = "tokyonight",
+    config = function()
+      vim.cmd('colorscheme tokyonight-moon')
+    end
+  })
+
+  -- Packer
+  use({
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({
+          -- add any options here
+      })
+    end,
+    requires = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+      }
+  })
+
+  use 'eandrju/cellular-automaton.nvim'
 
   use( 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use( 'nvim-treesitter/playground')

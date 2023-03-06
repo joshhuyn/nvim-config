@@ -20,3 +20,9 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
+
+function setTabWidth(width)
+    vim.opt.tabstop = width
+    vim.opt.softtabstop = width
+    vim.opt.shiftwidth = width
+end;

@@ -7,8 +7,10 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  use ('vim-airline/vim-airline')
-  use ('vim-airline/vim-airline-themes')
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
 
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
